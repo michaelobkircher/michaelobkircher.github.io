@@ -4,97 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Michael Obkircher – Data Science & KI</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #222;
-    }
-    header {
-      background-color: #0a2a4a;
-      color: white;
-      text-align: center;
-      padding: 3rem 1rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 2.5rem;
-    }
-    h2 {
-      font-size: 1.8rem;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1rem;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 0.5rem;
-    }
-    .contact a {
-      color: #0a2a4a;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Michael Obkircher</h1>
-    <p>Data Science & Künstliche Intelligenz</p>
+  <header id="start">
+    <div class="banner">
+      <div class="overlay">
+        <h1>Michael Obkircher</h1>
+        <p>Data Science & Künstliche Intelligenz</p>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#start">Start</a></li>
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#skills">Fähigkeiten</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
+
   <main>
-    <section>
-      <h2>Über mich</h2>
+    <section class="intro">
+      <h2>Willkommen!</h2>
       <p>
-        Ich komme ursprünglich aus dem Einzelhandel und bringe langjährige Erfahrung im Kundenkontakt und in der Problemlösung mit. <br />
-        Der Wunsch, analytischer zu arbeiten und einen Beruf auszuüben, der meine Fähigkeiten und Interessen besser abdeckt, hat mich dazu veranlasst, eine Umschulung im Bereich Data Science & Künstliche Intelligenz zu starten.
-      </p>
-      <p>
-        Aktuell beschäftige ich mich intensiv mit Themen wie Machine Learning, Datenanalyse, Datenvisualisierung und Statistik und vielen weiteren.
-      </p>
-      <p>
-        Ich suche aktiv nach einer Einstiegsmöglichkeit im Bereich Data Science, bei der ich mein bisher gesammeltes Wissen einbringen und erweitern kann.
+        Schön, dass du auf meiner Seite bist! Ich freue mich, neue Kontakte zu knüpfen, spannende Projekte zu entdecken und beruflich im Bereich Data Science & KI weiterzukommen.
+        Diese Seite gibt dir einen ersten Einblick in meine Reise, meine Skills und meine Motivation.
       </p>
     </section>
 
-    <section>
-      <h2>Grundlagen Kenntnisse</h2>
+    <section id="about" class="about">
+      <h2>Über mich</h2>
+      <div class="about-content">
+        <img src="img/profil.jpg" alt="Michael Obkircher" />
+        <p>
+          Ich komme ursprünglich aus dem Einzelhandel und bringe langjährige Erfahrung im Kundenkontakt und in der Problemlösung mit.<br><br>
+          Der Wunsch, analytischer zu arbeiten und einen Beruf auszuüben, der meine Fähigkeiten und Interessen besser abdeckt, hat mich zu einer Umschulung im Bereich Data Science & KI geführt. <br><br>
+          Aktuell beschäftige ich mich mit Machine Learning, Statistik, Datenanalyse und Visualisierung – und suche aktiv nach einem Einstieg in diesem Bereich.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <h2>Fähigkeiten</h2>
       <ul>
         <li>✔️ Python</li>
         <li>✔️ R</li>
         <li>✔️ Datenvisualisierung</li>
-        <li>✔️ Machine Learning Grundlagen</li>
         <li>✔️ Statistik & Datenanalyse</li>
+        <li>✔️ Machine Learning Grundlagen</li>
         <li>✔️ Power BI</li>
         <li>✔️ Künstliche Intelligenz</li>
       </ul>
     </section>
 
-    <section class="contact">
+    <section id="contact" class="contact">
       <h2>Kontakt</h2>
-      <a href="https://www.linkedin.com/in/michael-obkircher-357715330/" target="_blank">🔗 LinkedIn</a>
-      <a href="mailto:m.obkircher92@gmail.com">✉️ m.obkircher92@gmail.com</a>
+      <p>
+        📧 <a href="mailto:m.obkircher92@gmail.com">m.obkircher92@gmail.com</a><br>
+        🔗 <a href="https://www.linkedin.com/in/michael-obkircher-357715330/" target="_blank">LinkedIn-Profil</a>
+      </p>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Michael Obkircher</p>
+  </footer>
 </body>
 </html>
