@@ -11,7 +11,7 @@ body, html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* <– das ist der Parallax-Effekt */
+  background-attachment: fixed;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@ nav a:hover {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 30px;
   border-radius: 10px;
-  text-align: center; /* zentriert Text */
+  text-align: center;
 }
 
 .video-section {
@@ -64,7 +64,7 @@ nav a:hover {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 30px;
   border-radius: 10px;
-  text-align: center; /* zentriert Text */
+  text-align: center;
 }
 
 .videos {
