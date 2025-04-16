@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <div class="banner full-height">
+  <div class="banner">
     <nav>
       <ul>
         <li><a href="index.html">Start</a></li>
@@ -18,23 +18,37 @@
         <li><a href="contact.html">Kontakt</a></li>
       </ul>
     </nav>
-    <div class="intro fade-in">
-      <h1>Willkommen auf meiner Seite!</h1>
-      <p>
-        Ich freue mich, dass du hier bist. Diese Seite ist mein persönliches Projekt, mit dem ich meine Reise in die Welt der Daten und künstlichen Intelligenz dokumentiere. <br>
-        Ich bringe Neugier, Motivation und Erfahrung aus dem Kundenkontakt mit und möchte im Bereich Data Science & KI durchstarten.<br>
-        Lass uns gerne vernetzen!
-      </p>
-    </div>
+    <h1 class="name-heading">Michael Obkircher</h1>
+  </div>
 
-    <div class="video-section fade-in">
-      <h2>Was ist Data Science und KI?</h2>
-      <div class="videos">
-        <iframe width="360" height="215" src="https://www.youtube.com/embed/aircAruvnKk" title="What is Artificial Intelligence?" frameborder="0" allowfullscreen></iframe>
-        <iframe width="360" height="215" src="https://www.youtube.com/embed/xC-c7E5PK0Y" title="What is Data Science?" frameborder="0" allowfullscreen></iframe>
-      </div>
+  <div class="intro fade-in-on-scroll">
+    <h2>Willkommen auf meiner Seite!</h2>
+    <p>
+      Ich freue mich, dass du hier bist. Diese Seite ist mein persönliches Projekt, mit dem ich meine Reise in die Welt der Daten und künstlichen Intelligenz dokumentiere.<br>
+      Ich bringe Neugier, Motivation und Erfahrung aus dem Kundenkontakt mit und möchte im Bereich Data Science & KI durchstarten.<br>
+      Lass uns gerne vernetzen!
+    </p>
+  </div>
+
+  <div class="video-section fade-in-on-scroll">
+    <h2>Was ist Data Science und KI?</h2>
+    <div class="videos-column">
+      <iframe width="720" height="405" src="https://www.youtube.com/embed/aircAruvnKk" title="What is Artificial Intelligence?" frameborder="0" allowfullscreen></iframe>
+      <iframe width="720" height="405" src="https://www.youtube.com/embed/xC-c7E5PK0Y" title="What is Data Science?" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
+  <script>
+  const faders = document.querySelectorAll('.fade-in-on-scroll');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  faders.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
 
