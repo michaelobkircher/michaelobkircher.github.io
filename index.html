@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Michael Obkircher – Data Science & KI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -50,19 +51,7 @@
     </div>
   </div>
   <script>
-  const faders = document.querySelectorAll('.fade-in-on-scroll');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  faders.forEach(el => observer.observe(el));
-</script>
-<script>
-  const paragraph = document.getElementById("typed-paragraph");
+  const paragraphContainer = document.getElementById("typed-paragraph");
 
   const textBlocks = [
     "Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen.",
@@ -72,28 +61,29 @@
     "Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben.\nWenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!"
   ];
 
-  function revealParagraph(blocks, index = 0) {
-    if (index >= blocks.length) return;
+  function revealNext(index = 0) {
+    if (index >= textBlocks.length) return;
 
-    const paragraphEl = document.getElementById("typed-paragraph");
-    const p = document.createElement("p");
-    p.textContent = blocks[index];
-    p.style.opacity = "0";
-    paragraphEl.appendChild(p);
+    const block = document.createElement("p");
+    block.textContent = textBlocks[index];
+    block.style.opacity = "0";
+    block.style.transform = "translateY(20px)";
+    block.style.transition = "opacity 1.2s ease, transform 1.2s ease";
+    paragraphContainer.appendChild(block);
 
-    setTimeout(() => {
-      p.style.transition = "opacity 1.2s ease";
-      p.style.opacity = "1";
-    }, 100);
+    requestAnimationFrame(() => {
+      block.style.opacity = "1";
+      block.style.transform = "translateY(0)";
+    });
 
-    setTimeout(() => revealParagraph(blocks, index + 1), 2000); // Zeit zwischen Absätzen
+    setTimeout(() => revealNext(index + 1), 2200);
   }
 
+  // Erst nach dem Header starten
   setTimeout(() => {
-    paragraph.classList.remove("hidden");
-    paragraph.style.opacity = "1";
-    revealParagraph(textBlocks);
-  }, 2700); 
+    paragraphContainer.classList.remove("hidden");
+    revealNext();
+  }, 2800);
 </script>
 </body>
 </html>
