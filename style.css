@@ -11,14 +11,13 @@ body, html {
 }
 
 .banner {
-  min-height: auto;
-  padding-top: 120px;
-  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
+  padding-top: 140px;
+  padding-bottom: 80px;
   gap: 100px;
 }
 
@@ -208,12 +207,11 @@ nav a:hover {
 
 .typing-header {
   font-size: 2em;
-  width: fit-content;
   white-space: nowrap;
   overflow: hidden;
-  border-right: none;
   animation: typing 2.5s steps(40, end);
   margin: 0 auto 20px;
+  border-right: none;
 }
 
 .typed-paragraph {
@@ -228,7 +226,8 @@ nav a:hover {
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 @keyframes typing {
