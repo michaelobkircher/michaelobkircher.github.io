@@ -1,7 +1,6 @@
 body, html {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-family: 'Poppins', sans-serif;
   color: #ffffff;
   background-image: url("img/new-banner.jpg");
@@ -12,13 +11,14 @@ body, html {
 }
 
 .banner {
-  min-height: 100vh;
+  min-height: auto;
+  padding-top: 120px;
+  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding-top: 80px;
   gap: 100px;
 }
 
