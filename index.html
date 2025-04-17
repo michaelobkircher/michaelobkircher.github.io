@@ -51,39 +51,38 @@
     </div>
   </div>
   <script>
-  const paragraphContainer = document.getElementById("typed-paragraph");
+ const paragraphContainer = document.getElementById("typed-paragraph");
 
-  const textBlocks = [
-    "Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen.",
-    "Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.",
-    "Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen.",
-    "Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.",
-    "Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben.\nWenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!"
-  ];
+const textBlocks = [
+  "Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen.",
+  "Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.",
+  "Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen.",
+  "Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.",
+  "Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben.\nWenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!"
+];
 
-  function revealNext(index = 0) {
-    if (index >= textBlocks.length) return;
+function revealNext(index = 0) {
+  if (index >= textBlocks.length) return;
 
-    const block = document.createElement("p");
-    block.textContent = textBlocks[index];
-    block.style.opacity = "0";
-    block.style.transform = "translateY(20px)";
-    block.style.transition = "opacity 1.2s ease, transform 1.2s ease";
-    paragraphContainer.appendChild(block);
+  const block = document.createElement("p");
+  block.textContent = textBlocks[index];
+  block.style.opacity = "0";
+  block.style.transform = "translateY(20px)";
+  block.style.transition = "opacity 1.2s ease, transform 1.2s ease";
+  paragraphContainer.appendChild(block);
 
-    requestAnimationFrame(() => {
-      block.style.opacity = "1";
-      block.style.transform = "translateY(0)";
-    });
+  requestAnimationFrame(() => {
+    block.style.opacity = "1";
+    block.style.transform = "translateY(0)";
+  });
 
-    setTimeout(() => revealNext(index + 1), 2200);
-  }
+  setTimeout(() => revealNext(index + 1), 2200);
+}
 
-  // Erst nach dem Header starten
-  setTimeout(() => {
-    paragraphContainer.classList.remove("hidden");
-    revealNext();
-  }, 2800);
+setTimeout(() => {
+  paragraphContainer.classList.remove("hidden");
+  revealNext();
+}, 2800);
 </script>
 </body>
 </html>
