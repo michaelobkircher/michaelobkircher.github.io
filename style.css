@@ -2,7 +2,7 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #ffffff;
   background-image: url("img/new-banner.jpg");
   background-size: cover;
@@ -52,12 +52,15 @@ nav a:hover {
 }
 
 .intro {
-   margin: 50px auto;
+  margin: 80px auto;
   max-width: 900px;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 30px;
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 60px 40px;
+  border-radius: 12px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .video-section {
@@ -208,20 +211,20 @@ nav a:hover {
   width: fit-content;
   white-space: nowrap;
   overflow: hidden;
-  border-right: none; /* kein blinkender Cursor mehr */
+  border-right: none;
   animation: typing 2.5s steps(40, end);
   margin: 0 auto 20px;
 }
 
 .typed-paragraph {
-  font-size: 1.1em;
-  line-height: 1.6;
+  font-size: 1.2em;
+  line-height: 1.8;
   text-align: center;
-  white-space: pre-line;
   max-width: 800px;
-  margin: 0 auto;
   opacity: 0;
-  transition: opacity 1s ease-in;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
 }
 
 .hidden {
