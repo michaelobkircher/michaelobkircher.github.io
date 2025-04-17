@@ -109,15 +109,28 @@ nav a:hover {
 
 .about-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 30px;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.about-content p {
+  flex: 1 1 400px;
+  text-align: left;
+  color: white;
+  line-height: 1.6;
 }
 
 .profile-img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  width: 300px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
