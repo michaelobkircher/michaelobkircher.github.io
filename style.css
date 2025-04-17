@@ -128,3 +128,36 @@ nav a:hover {
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
+.about-section {
+  margin: 120px auto;
+  max-width: 1000px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9); /* hell für Test */
+  border-radius: 12px;
+  color: black;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  min-height: 300px;
+  border: 2px dashed red;
+}
+
+.about-content p {
+  flex: 1 1 400px;
+  text-align: left;
+  line-height: 1.6;
+  color: black;
+}
+
+.profile-img {
+  width: 280px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  display: block;
+}
