@@ -19,37 +19,28 @@
       </ul>
     </nav>
 <div class="flip-wrapper">
-  <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-  <div>
-    <h1 class="name-heading">Michael Obkircher</h1>
-    <p class="subtitle">Data Science & KI</p>
-  </div>
-</div>
-      <div class="flip-card-back">
-        <img src="img/portrait.jpg" alt="Michael Obkircher" class="flip-img">
+  <a href="about.html" class="flip-link">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div>
+            <h1 class="name-heading">Michael Obkircher</h1>
+            <p class="subtitle">Data Science & KI</p>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <img src="img/portrait.jpg" alt="Michael Obkircher" class="flip-img">
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>
 
-  <div class="intro fade-in-on-scroll">
-   <h2 class="typing">Willkommen auf meiner Seite!</h2>
-   <p>
-
-  Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen.  
-  Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.<br><br>
-
-  Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen.  
-  Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.<br><br>
-
-  Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben.  
-  Wenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!<br><br>
-     
-<a href="contact.html" class="contact-button">Jetzt Kontakt aufnehmen</a>
-   </p>
-  </div>
+<div class="intro fade-in-on-scroll">
+  <h2 class="typing">Willkommen auf meiner Seite!</h2>
+  <p id="typed-text" class="typed-paragraph"></p>
+  <a href="contact.html" class="contact-button">Jetzt Kontakt aufnehmen</a>
+</div>
 
   <div class="video-section fade-in-on-scroll">
     <h2>Was ist Data Science und KI?</h2>
@@ -69,6 +60,30 @@
   }, { threshold: 0.1 });
 
   faders.forEach(el => observer.observe(el));
+</script>
+    <script>
+  const text = `Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen.
+
+Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.
+
+Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen.
+
+Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.
+
+Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben. Wenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!`;
+
+  const paragraph = document.getElementById("typed-text");
+  let index = 0;
+
+  function typeText() {
+    if (index < text.length) {
+      paragraph.textContent += text[index];
+      index++;
+      setTimeout(typeText, 20); // Tippgeschwindigkeit (ms)
+    }
+  }
+
+  typeText();
 </script>
 </body>
 </html>
