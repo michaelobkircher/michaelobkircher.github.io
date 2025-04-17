@@ -176,7 +176,7 @@ nav a:hover {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  transform: scale(0.85);
+  transform: scale(1);
   
 }
 .flip-wrapper {
@@ -191,7 +191,7 @@ nav a:hover {
 }
 
 .flip-card:hover .flip-img {
-  transform: scale(0.85);
+  transform: scale(1);
   
 }
 .subtitle {
