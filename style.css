@@ -1,7 +1,8 @@
-body, html {
+ body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  height: 100%;
+  font-family: Arial, sans-serif;
   color: #ffffff;
   background-image: url("img/new-banner.jpg");
   background-size: cover;
@@ -11,13 +12,13 @@ body, html {
 }
 
 .banner {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding-top: 140px;
-  padding-bottom: 80px;
+  padding-top: 80px;
   gap: 100px;
 }
 
@@ -51,15 +52,12 @@ nav a:hover {
 }
 
 .intro {
-  margin: 80px auto;
+   margin: 50px auto;
   max-width: 900px;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 60px 40px;
-  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 10px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .video-section {
@@ -207,27 +205,27 @@ nav a:hover {
 
 .typing-header {
   font-size: 2em;
+  width: fit-content;
   white-space: nowrap;
   overflow: hidden;
+  border-right: none; /* kein blinkender Cursor mehr */
   animation: typing 2.5s steps(40, end);
   margin: 0 auto 20px;
-  border-right: none;
 }
 
 .typed-paragraph {
-  font-size: 1.2em;
-  line-height: 1.8;
+  font-size: 1.1em;
+  line-height: 1.6;
   text-align: center;
+  white-space: pre-line;
   max-width: 800px;
+  margin: 0 auto;
   opacity: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5em;
+  transition: opacity 1s ease-in;
 }
 
 .hidden {
-  opacity: 0;
-  transform: translateY(20px);
+  display: none;
 }
 
 @keyframes typing {
@@ -253,4 +251,4 @@ nav a:hover {
   cursor: pointer;
 }
 .flip-link {
-  text-decoration: none;
+  text-decoration: none; 
