@@ -202,24 +202,35 @@ nav a:hover {
   font-weight: 300;
   letter-spacing: 1px;
 }
-.typing {
+
+.typing-header {
   font-size: 2em;
   width: fit-content;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid #00e0b6;
-  animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+  border-right: none; /* kein blinkender Cursor mehr */
+  animation: typing 2.5s steps(40, end);
+  margin: 0 auto 20px;
+}
+
+.typed-paragraph {
+  font-size: 1.1em;
+  line-height: 1.6;
+  text-align: center;
+  white-space: pre-line;
+  max-width: 800px;
   margin: 0 auto;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.hidden {
+  display: none;
 }
 
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
-}
-
-@keyframes blink {
-  0%, 100% { border-color: transparent }
-  50% { border-color: #00e0b6 }
 }
 .contact-button {
   display: inline-block;
@@ -241,13 +252,3 @@ nav a:hover {
 }
 .flip-link {
   text-decoration: none;
-}
-.typed-paragraph {
-  font-size: 1.1em;
-  line-height: 1.6;
-  text-align: left;
-  white-space: pre-line; /* Zeilenumbrüche anzeigen */
-  border-right: 2px solid #00e0b6;
-  animation: blink 0.75s step-end infinite;
-  min-height: 200px;
-}
