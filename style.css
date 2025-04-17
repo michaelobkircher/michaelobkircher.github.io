@@ -175,6 +175,7 @@ nav a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: left center;
   max-width: 320px;
   max-height: 320px;
   border-radius: 12px;
@@ -237,4 +238,16 @@ nav a:hover {
   background-color: #00c0a0;
   color: #fff;
   cursor: pointer;
+}
+.flip-link {
+  text-decoration: none;
+}
+.typed-paragraph {
+  font-size: 1.1em;
+  line-height: 1.6;
+  text-align: left;
+  white-space: pre-line; /* Zeilenumbrüche anzeigen */
+  border-right: 2px solid #00e0b6;
+  animation: blink 0.75s step-end infinite;
+  min-height: 200px;
 }
