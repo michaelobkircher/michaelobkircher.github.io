@@ -37,8 +37,8 @@
 </div>
 
 <div class="intro fade-in-on-scroll">
-  <h2 class="typing">Willkommen auf meiner Seite!</h2>
-  <p id="typed-text" class="typed-paragraph"></p>
+  <h2 class="typing-header">Willkommen auf meiner Seite!</h2>
+  <p id="typed-paragraph" class="typed-paragraph hidden"></p>
   <a href="contact.html" class="contact-button">Jetzt Kontakt aufnehmen</a>
 </div>
 
@@ -61,29 +61,39 @@
 
   faders.forEach(el => observer.observe(el));
 </script>
-    <script>
-  const text = `Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen.
+<script>
+  const paragraph = document.getElementById("typed-paragraph");
 
-Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.
+  const textBlocks = [
+    "Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen.",
+    "Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.",
+    "Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen.",
+    "Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.",
+    "Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben.\nWenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!"
+  ];
 
-Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen.
+  function revealParagraph(blocks, index = 0) {
+    if (index >= blocks.length) return;
 
-Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.
+    const paragraphEl = document.getElementById("typed-paragraph");
+    const p = document.createElement("p");
+    p.textContent = blocks[index];
+    p.style.opacity = "0";
+    paragraphEl.appendChild(p);
 
-Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben. Wenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!`;
+    setTimeout(() => {
+      p.style.transition = "opacity 1.2s ease";
+      p.style.opacity = "1";
+    }, 100);
 
-  const paragraph = document.getElementById("typed-text");
-  let index = 0;
-
-  function typeText() {
-    if (index < text.length) {
-      paragraph.textContent += text[index];
-      index++;
-      setTimeout(typeText, 20); // Tippgeschwindigkeit (ms)
-    }
+    setTimeout(() => revealParagraph(blocks, index + 1), 2000); // Zeit zwischen Absätzen
   }
 
-  typeText();
+  setTimeout(() => {
+    paragraph.classList.remove("hidden");
+    paragraph.style.opacity = "1";
+    revealParagraph(textBlocks);
+  }, 2700); 
 </script>
 </body>
 </html>
