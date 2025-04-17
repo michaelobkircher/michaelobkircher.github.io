@@ -175,7 +175,7 @@ nav a:hover {
   width: 90%;
   height: 90%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center top;
   transform: scale(1);
   
 }
