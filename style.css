@@ -15,10 +15,10 @@ body, html {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* vorher: center */
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding-top: 120px; /* damit der Name nicht vom Nav verdeckt wird */
+  padding-top: 100px;
   gap: 40px;
 }
 
@@ -124,8 +124,8 @@ nav a:hover {
   color: #fff;
 }
 .flip-card {
-  width: 320px;
-  height: 220px;
+  width: 400px;
+  height: 280px;
   perspective: 1000px;
   margin-top: 150px;
   margin-left: auto;
@@ -177,8 +177,8 @@ nav a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  max-width: 320px;
-  max-height: 220px;
+  max-width: 400px;
+  max-height: 280px;
   border-radius: 12px;
 }
 .flip-wrapper {
