@@ -18,8 +18,8 @@ body, html {
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding-top: 120px;
-  gap: 40px;
+  padding-top: 80px;
+  gap: 60px;
 }
 
 nav {
@@ -127,9 +127,7 @@ nav a:hover {
   width: 320px;
   height: 320px;
   perspective: 1000px;
-  margin-top: 150px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto; 
 }
 
 .flip-card-inner {
@@ -192,7 +190,51 @@ nav a:hover {
   transition: transform 0.8s ease, scale 0.8s ease;
 }
 
-.flip-card:hover .flip-card-back img {
+.flip-card:hover .flip-img {
   transform: scale(1.05);
   transition: transform 0.8s ease;
+}
+.subtitle {
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: #00e0b6;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.typing {
+  font-size: 2em;
+  width: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00e0b6;
+  animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+  margin: 0 auto;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: #00e0b6 }
+}
+.contact-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  background-color: #00e0b6;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #00c0a0;
+  color: #fff;
+  cursor: pointer;
 }
