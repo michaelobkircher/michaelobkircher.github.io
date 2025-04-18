@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontakt | Michael Obkircher</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="about.html">Über mich</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <section class="contact-section fade-item" style="--delay: 0">
+    <div class="contact-container">
+      <h2>Kontakt</h2>
+      <p>Du möchtest mit mir in Kontakt treten? Ich freue mich auf deine Nachricht!</p>
+      
+      <div class="contact-method fade-item" style="--delay: 1">
+        <a href="https://www.linkedin.com/in/michael-obkircher-357715330" target="_blank">
+          <i class="fab fa-linkedin fa-2x"></i> LinkedIn
+        </a>
+      </div>
+
+      <div class="contact-method fade-item" style="--delay: 2">
+        <a href="mailto:m.obkircher92@gmail.com">
+          <i class="fas fa-envelope fa-2x"></i> m.obkircher92@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Fade-In Effekt
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('.fade-item').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
