@@ -204,12 +204,14 @@ nav a:hover {
 
 .typing-header {
   font-size: 2em;
-  width: fit-content;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: none; /* kein blinkender Cursor mehr */
-  animation: typing 2.5s steps(40, end);
   margin: 0 auto 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.typing-header.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .typed-paragraph {
@@ -284,4 +286,16 @@ nav a:hover {
 
 .fade-delay-3 {
   transition-delay: 2s;
+}
+.fade-delay-4 {
+  transition-delay: 3s;
+}
+
+.fade-delay-5 {
+  transition-delay: 4s;
+}
+.intro p {
+  margin: 16px 0;
+  font-size: 1.1em;
+  line-height: 1.6;
 }
