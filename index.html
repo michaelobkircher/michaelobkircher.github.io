@@ -67,21 +67,24 @@
   faders.forEach(el => observer.observe(el));
 </script>
 <script>
-const fadeItems = [...document.querySelectorAll('.fade-sequence')];
+window.addEventListener('DOMContentLoaded', () => {
+  const fadeItems = [...document.querySelectorAll('.fade-sequence')];
 
-const sequentialObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
-      const index = fadeItems.indexOf(entry.target);
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, index * 1000); // Verzögerung pro Index
-      sequentialObserver.unobserve(entry.target); // Nicht nochmal triggern
-    }
-  });
-}, { threshold: 0.3 });
+  const sequentialObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+        const index = fadeItems.indexOf(entry.target);
+        console.log('Fading in:', entry.target, 'Index:', index); // Debug
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 1000);
+        sequentialObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
 
-fadeItems.forEach(item => sequentialObserver.observe(item));
+  fadeItems.forEach(item => sequentialObserver.observe(item));
+});
 </script>
 </body>
 </html>
