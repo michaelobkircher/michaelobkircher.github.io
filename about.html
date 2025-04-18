@@ -121,18 +121,16 @@
     </div>
   </section>
 
-  <script>
+<script>
+  window.addEventListener('load', () => {
     const fadeItems = document.querySelectorAll('.fade-item');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    fadeItems.forEach(item => observer.observe(item));
-  </script>
+    fadeItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('visible');
+      }, index * 500); // 500ms Abstand pro Element
+    });
+  });
+</script>
 </body>
 </html>
