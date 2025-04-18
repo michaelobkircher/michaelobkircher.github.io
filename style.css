@@ -244,10 +244,22 @@ nav a:hover {
   transition: background-color 0.3s ease;
 }
 
-.contact-button:hover {
-  background-color: #00c0a0;
-  color: #fff;
-  cursor: pointer;
+.contact-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  background-color: #00e0b6;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, opacity 1s ease;
+  opacity: 0;
+}
+
+.contact-button.visible {
+  opacity: 1;
 }
 .flip-link {
   text-decoration: none; 
