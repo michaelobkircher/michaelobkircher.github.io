@@ -8,6 +8,22 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Nur einmal auslösen
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-item').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
 <body>
   <div class="banner">
     <nav>
@@ -37,21 +53,32 @@
       </a>
     </div>
 
-    <div class="intro">
-      <h2 class="typing-header">Willkommen auf meiner Seite!</h2>
-      <p>Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen. Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.</p>
-      <p>Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen. Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.</p>
-      <p>Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben. Wenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!</p>
-      <a href="contact.html" class="contact-button">Jetzt Kontakt aufnehmen</a>
-    </div>
+<div class="intro">
+  <h2 class="fade-item" style="--delay: 0;">Willkommen auf meiner Seite!</h2>
 
-    <div class="video-section">
-      <h2>Was ist Data Science und KI?</h2>
-      <div class="videos-column">
-        <iframe width="720" height="405" src="https://www.youtube.com/embed/jmmW0F0biz0?si=eioAcSCiuozMUk7Z" title="What is Artificial Intelligence?" frameborder="0" allowfullscreen></iframe>
-        <iframe width="720" height="405" src="https://www.youtube.com/embed/RBSUwFGa6Fk" title="What is Data Science?" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
+  <p class="fade-item" style="--delay: 1;">
+    Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen...
+  </p>
+
+  <p class="fade-item" style="--delay: 2;">
+    Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen...
+  </p>
+
+  <p class="fade-item" style="--delay: 3;">
+    Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben...
+  </p>
+
+  <a href="contact.html" class="contact-button fade-item" style="--delay: 4;">Jetzt Kontakt aufnehmen</a>
+</div>
+
+  <div class="video-section fade-item" style="--delay: 0;">
+  <h2>Was ist Data Science und KI?</h2>
+  <div class="videos-column">
+    <iframe width="720" height="405" src="https://www.youtube.com/embed/jmmW0F0biz0?si=eioAcSCiuozMUk7Z" title="What is Artificial Intelligence?" frameborder="0" allowfullscreen class="fade-item" style="--delay: 1;"></iframe>
+
+    <iframe width="720" height="405" src="https://www.youtube.com/embed/RBSUwFGa6Fk" title="What is Data Science?" frameborder="0" allowfullscreen class="fade-item" style="--delay: 2;"></iframe>
+  </div>
+</div>
   </div>
 </body>
 </html>
