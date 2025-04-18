@@ -219,12 +219,12 @@ nav a:hover {
   white-space: pre-line;
   max-width: 800px;
   margin: 0 auto;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 1s ease-in;
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
 }
 
 @keyframes typing {
