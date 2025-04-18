@@ -37,9 +37,13 @@
 </div>
 
 <div class="intro fade-in-on-scroll">
-  <h2 class="typing-header">Willkommen auf meiner Seite!</h2>
-  <p id="typed-paragraph" class="typed-paragraph hidden"></p>
-  <a href="contact.html" class="contact-button">Jetzt Kontakt aufnehmen</a>
+  <h2 class="typing-header fade-sequence fade-delay-1">Willkommen auf meiner Seite!</h2>
+  <p id="typed-paragraph" class="typed-paragraph fade-sequence fade-delay-2">
+    Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen.<br><br>
+    Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.<br><br>
+    Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen.
+  </p>
+  <a href="contact.html" class="contact-button fade-sequence fade-delay-3">Jetzt Kontakt aufnehmen</a>
 </div>
 
   <div class="video-section fade-in-on-scroll">
@@ -62,63 +66,18 @@
   faders.forEach(el => observer.observe(el));
 </script>
 <script>
-  const intro = document.querySelector('.intro');
-  const header = document.querySelector('.typing-header');
-  const paragraphBox = document.getElementById("typed-paragraph");
-  const contactButton = document.querySelector('.contact-button');
+  // Allgemeiner Observer für Einblendungen
+  const fadeItems = document.querySelectorAll('.fade-sequence');
 
-  const textBlocks = [
-    "Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen.",
-    "Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.",
-    "Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen."
-  ];
-
-  // Tipp-Animation für Überschrift
-  function typeText(element, text, speed = 50, callback) {
-    let i = 0;
-    function type() {
-      if (i < text.length) {
-        element.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, speed);
-      } else if (callback) {
-        callback();
-      }
-    }
-    type();
-  }
-
-  function revealParagraphs(blocks, index = 0) {
-    if (index >= blocks.length) {
-      contactButton.classList.add('visible');
-      return;
-    }
-
-    const p = document.createElement("p");
-    p.textContent = '';
-    paragraphBox.appendChild(p);
-
-    typeText(p, blocks[index], 25, () => {
-      setTimeout(() => revealParagraphs(blocks, index + 1), 600);
-    });
-  }
-
-  // Observer für Scrollstart
-  const introObserver = new IntersectionObserver(entries => {
+  const fadeObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        introObserver.disconnect(); // Nur 1x ausführen
-        header.textContent = '';
-        typeText(header, 'Willkommen auf meiner Seite!', 25, () => {
-          paragraphBox.classList.remove('hidden');
-          paragraphBox.classList.add('visible');
-          revealParagraphs(textBlocks);
-        });
+        entry.target.classList.add('visible');
       }
     });
   }, { threshold: 0.3 });
 
-  introObserver.observe(intro);
+  fadeItems.forEach(el => fadeObserver.observe(el));
 </script>
 </body>
 </html>
