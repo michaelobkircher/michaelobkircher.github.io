@@ -67,21 +67,25 @@
   faders.forEach(el => observer.observe(el));
 </script>
 <script>
-  const fadeItems = document.querySelectorAll('.fade-sequence');
+  const fadeItems = [...document.querySelectorAll('.fade-sequence')];
 
   const sequentialObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const delay = parseFloat(getComputedStyle(entry.target).transitionDelay) || 0;
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, delay * 1000); // Delay in Sekunden umrechnen in Millisekunden
-        sequentialObserver.unobserve(entry.target); // Einmalige Animation
+        fadeItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('visible');
+          }, index * 1000); // 1 Sekunde Abstand pro Element
+        });
+        sequentialObserver.disconnect(); // Nur einmal triggern
       }
     });
   }, { threshold: 0.3 });
 
-  fadeItems.forEach(el => sequentialObserver.observe(el));
+  // Wir beobachten nur das erste Element, um die Sequenz zu starten
+  if (fadeItems.length) {
+    sequentialObserver.observe(fadeItems[0]);
+  }
 </script>
 </body>
 </html>
