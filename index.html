@@ -71,20 +71,17 @@ const fadeItems = [...document.querySelectorAll('.fade-sequence')];
 
 const sequentialObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      fadeItems.forEach((item, index) => {
-        setTimeout(() => {
-          item.classList.add('visible');
-        }, index * 1000); // 1 Sekunde Abstand pro Element
-      });
-      sequentialObserver.disconnect(); // Nur einmal triggern
+    if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+      const index = fadeItems.indexOf(entry.target);
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, index * 1000); // Verzögerung pro Index
+      sequentialObserver.unobserve(entry.target); // Nicht nochmal triggern
     }
   });
 }, { threshold: 0.3 });
 
-if (fadeItems.length) {
-  sequentialObserver.observe(fadeItems[0]);
-}
+fadeItems.forEach(item => sequentialObserver.observe(item));
 </script>
 </body>
 </html>
