@@ -277,22 +277,22 @@ nav a:hover {
 }
 
 .fade-delay-1 {
-  transition-delay: 0.3s;
-}
-
-.fade-delay-2 {
   transition-delay: 1s;
 }
 
-.fade-delay-3 {
+.fade-delay-2 {
   transition-delay: 2s;
 }
-.fade-delay-4 {
+
+.fade-delay-3 {
   transition-delay: 3s;
+}
+.fade-delay-4 {
+  transition-delay: 4s;
 }
 
 .fade-delay-5 {
-  transition-delay: 4s;
+  transition-delay: 5s;
 }
 .intro p {
   margin: 16px 0;
