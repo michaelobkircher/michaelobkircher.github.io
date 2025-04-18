@@ -272,11 +272,45 @@ nav a:hover {
     text-align: center;
     margin-top: 0;
   }
+
+/* Kontakt-Seite */
+.contact-section {
+  max-width: 800px;
+  margin: 120px auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
 }
 
-@media (min-width: 768px) {
-  .button-wrapper {
-    text-align: center;
-    margin-top: 20px;
-  }
+.contact-section h2 {
+  font-size: 2.5em;
+  color: #00e0b6;
+  margin-bottom: 20px;
+}
+
+.contact-method {
+  margin-top: 30px;
+}
+
+.contact-method a {
+  color: #fff;
+  font-size: 1.2em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: color 0.3s ease;
+}
+
+.contact-method a:hover {
+  color: #00e0b6;
+}
+
+.contact-method i {
+  transition: transform 0.3s ease;
+}
+
+.contact-method a:hover i {
+  transform: scale(1.2);
 }
