@@ -109,8 +109,9 @@
       if (entry.isIntersecting) {
         introObserver.disconnect(); // Nur 1x ausführen
         header.textContent = '';
-        typeText(header, 'Willkommen auf meiner Seite!', 50, () => {
+        typeText(header, 'Willkommen auf meiner Seite!', 25, () => {
           paragraphBox.classList.remove('hidden');
+          paragraphBox.classList.add('visible');
           revealParagraphs(textBlocks);
         });
       }
