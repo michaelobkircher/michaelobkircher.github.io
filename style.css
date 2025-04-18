@@ -8,7 +8,7 @@ body, html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 .banner {
@@ -266,10 +266,3 @@ nav a:hover {
     text-align: center;
     margin-top: 0;
   }
-}
-@media (min-width: 768px) {
-  .button-wrapper {
-    text-align: center;
-    margin-top: 20px;
-  }
-}
