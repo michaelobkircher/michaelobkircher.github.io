@@ -278,8 +278,9 @@ nav a:hover {
 
 
 .fade-sequence.visible {
-  opacity: 1;
-  transform: translateY(0);
+  transition-delay: 0s; /* Optional */
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .intro p {
