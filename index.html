@@ -62,38 +62,62 @@
   faders.forEach(el => observer.observe(el));
 </script>
 <script>
-  const paragraph = document.getElementById("typed-paragraph");
+  const intro = document.querySelector('.intro');
+  const header = document.querySelector('.typing-header');
+  const paragraphBox = document.getElementById("typed-paragraph");
+  const contactButton = document.querySelector('.contact-button');
 
   const textBlocks = [
     "Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen.",
     "Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.",
-    "Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen.",
-    "Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.",
-    "Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben.\nWenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!"
+    "Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen."
   ];
 
-  function revealParagraph(blocks, index = 0) {
-    if (index >= blocks.length) return;
-
-    const paragraphEl = document.getElementById("typed-paragraph");
-    const p = document.createElement("p");
-    p.textContent = blocks[index];
-    p.style.opacity = "0";
-    paragraphEl.appendChild(p);
-
-    setTimeout(() => {
-      p.style.transition = "opacity 1.2s ease";
-      p.style.opacity = "1";
-    }, 100);
-
-    setTimeout(() => revealParagraph(blocks, index + 1), 2000); // Zeit zwischen Absätzen
+  // Tipp-Animation für Überschrift
+  function typeText(element, text, speed = 50, callback) {
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else if (callback) {
+        callback();
+      }
+    }
+    type();
   }
 
-  setTimeout(() => {
-    paragraph.classList.remove("hidden");
-    paragraph.style.opacity = "1";
-    revealParagraph(textBlocks);
-  }, 2700); 
+  function revealParagraphs(blocks, index = 0) {
+    if (index >= blocks.length) {
+      contactButton.classList.add('visible');
+      return;
+    }
+
+    const p = document.createElement("p");
+    p.textContent = '';
+    paragraphBox.appendChild(p);
+
+    typeText(p, blocks[index], 25, () => {
+      setTimeout(() => revealParagraphs(blocks, index + 1), 600);
+    });
+  }
+
+  // Observer für Scrollstart
+  const introObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        introObserver.disconnect(); // Nur 1x ausführen
+        header.textContent = '';
+        typeText(header, 'Willkommen auf meiner Seite!', 50, () => {
+          paragraphBox.classList.remove('hidden');
+          revealParagraphs(textBlocks);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  introObserver.observe(intro);
 </script>
 </body>
 </html>
