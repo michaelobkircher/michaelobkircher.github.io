@@ -37,14 +37,14 @@
 </div>
 
 <div class="intro fade-in-on-scroll">
-  <h2 class="typing-header fade-sequence fade-delay-1">Willkommen auf meiner Seite!</h2>
-<p class="fade-sequence fade-delay-2">Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen. Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.</p>
+  <h2 class="typing-header fade-sequence">Willkommen auf meiner Seite!</h2>
+<p class="fade-sequence">Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen. Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.</p>
 
-<p class="fade-sequence fade-delay-3">Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen. Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.</p>
+<p class="fade-sequence">Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen. Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.</p>
 
-<p class="fade-sequence fade-delay-4">Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben. Wenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!</p>
+<p class="fade-sequence">Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben. Wenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!</p>
 
-<a href="contact.html" class="contact-button fade-sequence fade-delay-5">Jetzt Kontakt aufnehmen</a>
+<a href="contact.html" class="contact-button fade-sequence">Jetzt Kontakt aufnehmen</a>
 </div>
 
   <div class="video-section fade-in-on-scroll">
@@ -67,25 +67,24 @@
   faders.forEach(el => observer.observe(el));
 </script>
 <script>
-  const fadeItems = [...document.querySelectorAll('.fade-sequence')];
+const fadeItems = [...document.querySelectorAll('.fade-sequence')];
 
-  const sequentialObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        fadeItems.forEach((item, index) => {
-          setTimeout(() => {
-            item.classList.add('visible');
-          }, index * 1000); // 1 Sekunde Abstand pro Element
-        });
-        sequentialObserver.disconnect(); // Nur einmal triggern
-      }
-    });
-  }, { threshold: 0.3 });
+const sequentialObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      fadeItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('visible');
+        }, index * 1000); // 1 Sekunde Abstand pro Element
+      });
+      sequentialObserver.disconnect(); // Nur einmal triggern
+    }
+  });
+}, { threshold: 0.3 });
 
-  // Wir beobachten nur das erste Element, um die Sequenz zu starten
-  if (fadeItems.length) {
-    sequentialObserver.observe(fadeItems[0]);
-  }
+if (fadeItems.length) {
+  sequentialObserver.observe(fadeItems[0]);
+}
 </script>
 </body>
 </html>
