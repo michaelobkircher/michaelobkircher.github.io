@@ -267,3 +267,10 @@ nav a:hover {
     margin-top: 0;
   }
 }
+@media (max-width: 767px) {
+  .button-wrapper {
+    position: static;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
