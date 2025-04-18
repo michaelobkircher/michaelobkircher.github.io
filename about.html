@@ -94,7 +94,7 @@
       <div class="about-image fade-item" style="--delay: 0">
         <img src="img/portrait_new.jpg" alt="Mein Portrait" />
             <div class="button-wrapper">
-      <a href="contact.html" class="contact-button fade-item" style="--delay: 10">Kontaktieren</a>
+      <a href="contact.html" class="contact-button fade-item" style="--delay: 7">Kontaktieren</a>
        </div>
       </div>
       <div class="about-text">
@@ -119,14 +119,16 @@
         </p>
       </div>
     </div>
-    <script>
+<script>
   window.addEventListener('load', () => {
     const fadeItems = document.querySelectorAll('.fade-item');
 
-    fadeItems.forEach((item, index) => {
+    fadeItems.forEach(item => {
+      const delay = parseFloat(getComputedStyle(item).getPropertyValue('--delay')) || 0;
+
       setTimeout(() => {
         item.classList.add('visible');
-      }, index * 500); // 500ms Abstand pro Element
+      }, delay * 500); // gleiche Delay-Logik wie in CSS
     });
   });
 </script>
