@@ -9,7 +9,6 @@
 
   <!-- tsParticles Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-links@3/tsparticles.preset.links.min.js"></script>
 </head>
 <body>
   <!-- Neuronales Netz als animierter Hintergrund -->
@@ -83,77 +82,50 @@
         observer.observe(el);
       });
 
-      // tsParticles starten
-      tsParticles.load({
-        id: "tsparticles",
-        options: {
-          preset: "links",
-          background: {
-            color: "#0f0f0f"
-          },
-          fpsLimit: 60,
-          interactivity: {
-            detectsOn: "canvas",
-            events: {
-              onHover: {
-                enable: true,
-                mode: "repulse"
-              },
-              resize: true
-            },
-            modes: {
-              repulse: {
-                distance: 100,
-                duration: 0.4
-              }
-            }
-          },
-          particles: {
-            color: { value: "#00ffcc" },
-            links: {
-              enable: true,
-              color: "#00ffcc",
-              distance: 140,
-              opacity: 0.5,
-              width: 1
-            },
-            collisions: {
-              enable: false
-            },
-            move: {
-              enable: true,
-              speed: 1.5,
-              direction: "none",
-              random: false,
-              straight: false,
-              outModes: {
-                default: "bounce"
-              },
-              attract: {
-                enable: false
-              }
-            },
-            number: {
-              value: 65,
-              density: {
-                enable: true,
-                area: 800
-              }
-            },
-            opacity: {
-              value: 0.5
-            },
-            shape: {
-              type: "circle"
-            },
-            size: {
-              value: 3
-            }
-          },
-          detectRetina: true
-        }
-      });
-    });
+     tsParticles.load("tsparticles", {
+  background: {
+    color: "#0f0f0f"
+  },
+  fpsLimit: 60,
+  interactivity: {
+    events: {
+      onHover: {
+        enable: true,
+        mode: "repulse"
+      },
+      resize: true
+    },
+    modes: {
+      repulse: {
+        distance: 100,
+        duration: 0.4
+      }
+    }
+  },
+  particles: {
+    color: { value: "#00ffcc" },
+    links: {
+      enable: true,
+      color: "#00ffcc",
+      distance: 140,
+      opacity: 0.5,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 1.5,
+      outModes: { default: "bounce" }
+    },
+    number: {
+      value: 65,
+      density: { enable: true, area: 800 }
+    },
+    opacity: { value: 0.5 },
+    shape: { type: "circle" },
+    size: { value: 3 }
+  },
+  detectRetina: true
+});
   </script>
 </body>
 </html>
