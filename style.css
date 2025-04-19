@@ -401,3 +401,15 @@ nav a:hover {
   height: auto;
   border-radius: 4px;
 }
+.flip-back ul {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 0.85em;
+  line-height: 1.5em;
+  text-align: left;
+}
+
+.flip-back p {
+  font-size: 0.9em;
+  color: #aaa;
+}
