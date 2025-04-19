@@ -7,6 +7,8 @@
   <title>Michael Obkircher – Data Science & KI</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-links@3/tsparticles.preset.links.min.js"></script>
 </head>
   <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -23,8 +25,41 @@
       observer.observe(el);
     });
   });
+    tsParticles.load({
+  id: "tsparticles",
+  options: {
+    preset: "links",
+    background: {
+      color: "#0f0f0f"
+    },
+    particles: {
+      color: { value: "#00ffcc" },
+      links: {
+        enable: true,
+        color: "#00ffcc",
+        distance: 150,
+        opacity: 0.4,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 1.5
+      },
+      number: {
+        value: 60
+      },
+      opacity: {
+        value: 0.6
+      },
+      size: {
+        value: 3
+      }
+    }
+  }
+});
 </script>
 <body>
+  <div id="tsparticles"></div>
   <div class="banner">
     <nav>
       <ul>
