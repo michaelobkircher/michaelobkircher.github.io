@@ -1,18 +1,30 @@
+<!-- index.html - Startseite -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Michael Obkircher – Data Science & KI</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-  <!-- tsParticles -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
-  <div id="tsparticles"></div>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Nur einmal auslösen
+        }
+      });
+    }, { threshold: 0.1 });
 
+    document.querySelectorAll('.fade-item').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+<body>
   <div class="banner">
     <nav>
       <ul>
@@ -41,91 +53,30 @@
       </a>
     </div>
 
-    <div class="intro">
-      <h2 class="fade-item" style="--delay: 0;">Willkommen auf meiner Seite!</h2>
+<div class="intro">
+  <h2 class="fade-item" style="--delay: 0;">Willkommen auf meiner Seite!</h2>
 
-      <p class="fade-item" style="--delay: 1;">
-        Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen. Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.
-      </p>
+  <p class="fade-item" style="--delay: 1;">
+    Nach vielen Jahren im Einzelhandel habe ich den Entschluss gefasst, meine Leidenschaft für Daten, Analysen und intelligente Technologien zum Beruf zu machen. Derzeit absolviere ich eine umfassende Ausbildung im Bereich Data Science & Künstliche Intelligenz und lerne täglich dazu – mit Begeisterung, Ausdauer und Neugier.
+  </p>
 
-      <p class="fade-item" style="--delay: 2;">
-        Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen. Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.
-      </p>
+  <p class="fade-item" style="--delay: 2;">
+    Mein Ziel ist es, in einem innovativen Unternehmen mit echten Daten zu arbeiten, Muster zu erkennen, Prozesse zu verbessern und nachhaltige Lösungen zu schaffen. Ich bringe nicht nur analytisches Denken mit, sondern auch Erfahrung im Umgang mit Menschen, in der Lösungsfindung und im selbstständigen Arbeiten.
 
-      <p class="fade-item" style="--delay: 3;">
-        Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben. Wenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!
-      </p>
+  <p class="fade-item" style="--delay: 3;">
+    Auf dieser Seite möchte ich Ihnen einen Einblick in meinen Weg, meine Fähigkeiten und meine Motivation geben. Wenn Sie sich angesprochen fühlen oder einfach neugierig sind – ich freue mich über jede Kontaktaufnahme!
 
-      <a href="contact.html" class="contact-button fade-item" style="--delay: 4;">Kontaktieren</a>
-    </div>
+  <a href="contact.html" class="contact-button fade-item" style="--delay: 5;">Kontaktieren</a>
+</div>
 
-    <div class="video-section fade-item" style="--delay: 5;">
-      <h2>Was ist Data Science und KI?</h2>
-      <div class="videos-column">
-        <iframe width="720" height="405" src="https://www.youtube.com/embed/jmmW0F0biz0?si=eioAcSCiuozMUk7Z" title="What is Artificial Intelligence?" frameborder="0" allowfullscreen class="fade-item" style="--delay: 6;"></iframe>
+  <div class="video-section fade-item" style="--delay: 0;">
+  <h2>Was ist Data Science und KI?</h2>
+  <div class="videos-column">
+    <iframe width="720" height="405" src="https://www.youtube.com/embed/jmmW0F0biz0?si=eioAcSCiuozMUk7Z" title="What is Artificial Intelligence?" frameborder="0" allowfullscreen class="fade-item" style="--delay: 1;"></iframe>
 
-        <iframe width="720" height="405" src="https://www.youtube.com/embed/RBSUwFGa6Fk" title="What is Data Science?" frameborder="0" allowfullscreen class="fade-item" style="--delay: 7;"></iframe>
-      </div>
-    </div>
+    <iframe width="720" height="405" src="https://www.youtube.com/embed/RBSUwFGa6Fk" title="What is Data Science?" frameborder="0" allowfullscreen class="fade-item" style="--delay: 1,5;"></iframe>
   </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Fade-In-Effekt
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.fade-item').forEach(el => {
-        observer.observe(el);
-      });
-
-      // tsParticles-Konfiguration
-      tsParticles.load("tsparticles", {
-        background: { color: "#0f0f0f" },
-        fpsLimit: 60,
-        interactivity: {
-          events: {
-            onHover: { enable: true, mode: "repulse" },
-            resize: true
-          },
-          modes: {
-            repulse: {
-              distance: 100,
-              duration: 0.4
-            }
-          }
-        },
-        particles: {
-          color: { value: "#00ffcc" },
-          links: {
-            enable: true,
-            color: "#00ffcc",
-            distance: 140,
-            opacity: 0.5,
-            width: 1
-          },
-          move: {
-            enable: true,
-            speed: 1.5,
-            outModes: { default: "bounce" }
-          },
-          number: {
-            value: 65,
-            density: { enable: true, area: 800 }
-          },
-          opacity: { value: 0.5 },
-          shape: { type: "circle" },
-          size: { value: 3 }
-        },
-        detectRetina: true
-      });
-    });
-  </script>
+</div>
+  </div>
 </body>
 </html>
