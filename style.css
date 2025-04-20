@@ -489,3 +489,16 @@ nav a:hover {
   font-size: 1em;
   color: #ccc;
 }
+html, body {
+  height: 100%;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
