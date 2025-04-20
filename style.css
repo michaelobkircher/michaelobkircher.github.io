@@ -364,6 +364,8 @@ nav a:hover {
   height: 100%;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
 }
 
 .flipcard:hover .flip-inner {
