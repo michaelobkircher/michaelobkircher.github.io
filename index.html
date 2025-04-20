@@ -25,6 +25,14 @@
   });
 </script>
 <body>
+  <div id="preloader">
+  <div class="boot-animation">
+    <p class="boot-line">BIOS Version 1.04</p>
+    <p class="boot-line">Initializing hardware...</p>
+    <p class="boot-line">Loading operating system</p>
+    <p class="boot-line">Welcome to WebOS 95</p>
+  </div>
+</div>
   <div class="banner">
     <nav>
       <ul>
@@ -78,5 +86,13 @@
   </div>
 </div>
   </div>
+  <script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 5000); // Dauer der Animation (muss zur CSS passen)
+  });
+</script>
 </body>
 </html>
