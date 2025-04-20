@@ -449,3 +449,43 @@ nav a:hover {
     visibility: hidden;
   }
 }
+/* Navigation: Logo rechts oben */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px 30px;
+  z-index: 1000;
+}
+
+.logo-container {
+  height: 40px;
+}
+
+.nav-logo {
+  height: 100%;
+  width: auto;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 100px;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.footer-logo {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  font-size: 1em;
+  color: #ccc;
+}
