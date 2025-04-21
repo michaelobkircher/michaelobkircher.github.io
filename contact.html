@@ -10,41 +10,47 @@
 <body>
   <canvas id="neural-bg"></canvas>
   <div class="page-wrapper">
-  <nav>
-    <ul>
-      <li><a href="index.html">Start</a></li>
-      <li><a href="about.html">Über mich</a></li>
-      <li><a href="skills.html">Fähigkeiten</a></li>
-      <li><a href="contact.html">Kontakt</a></li>
-    </ul>
-       <div class="logo-container">
-    <img src="img/logo.png" alt="Logo" class="nav-logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="about.html">Über mich</a></li>
+        <li><a href="skills.html">Fähigkeiten</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+      <div class="logo-container">
+        <img src="img/logo.png" alt="Logo" class="nav-logo">
+      </div>
+    </nav>
+
+    <main>
+      <section class="contact-section fade-item" style="--delay: 1">
+        <div class="contact-container">
+          <h2>Kontakt</h2>
+
+          <div class="contact-method fade-item" style="--delay: 2">
+            <p>Sie möchten mit mir in Kontakt treten? Ich freue mich auf Ihre Nachricht.</p>
+          </div>
+          
+          <div class="contact-method fade-item" style="--delay: 3">
+            <a href="https://www.linkedin.com/in/michael-obkircher-357715330" target="_blank">
+              <i class="fab fa-linkedin fa-2x"></i> LinkedIn
+            </a>
+          </div>
+
+          <div class="contact-method fade-item" style="--delay: 4">
+            <a href="mailto:m.obkircher92@gmail.com">
+              <i class="fas fa-envelope fa-2x"></i> m.obkircher92@gmail.com
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="img/logo.png" alt="Logo" class="footer-logo">
+      <p class="footer-text">Michael Obkircher</p>
+    </footer>
   </div>
-  </nav>
-<main>
-  <section class="contact-section fade-item" style="--delay: 1">
-    <div class="contact-container">
-      <h2>Kontakt</h2>
-
-      <div class="contact-method fade-item" style="--delay: 2">
-      <p>Sie möchten mit mir in Kontakt treten? Ich freue mich auf Ihre Nachricht.</p>
-        </a>
-      </div>
-      
-      <div class="contact-method fade-item" style="--delay: 3">
-        <a href="https://www.linkedin.com/in/michael-obkircher-357715330" target="_blank">
-          <i class="fab fa-linkedin fa-2x"></i> LinkedIn
-        </a>
-      </div>
-
-      <div class="contact-method fade-item" style="--delay: 4">
-        <a href="mailto:m.obkircher92@gmail.com">
-          <i class="fas fa-envelope fa-2x"></i> m.obkircher92@gmail.com
-        </a>
-      </div>
-    </div>
-  </section>
-  </main>
 
   <script>
     // Fade-In Effekt
@@ -60,123 +66,105 @@
       observer.observe(el);
     });
   </script>
-    <footer class="site-footer">
-  <img src="img/logo.png" alt="Logo" class="footer-logo">
-  <p class="footer-text">Michael Obkircher</p>
-</footer>
-      </div>
+
   <script>
-  const canvas = document.getElementById("neural-bg");
-  const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById("neural-bg");
+    const ctx = canvas.getContext("2d");
 
-  let width = canvas.width = window.innerWidth;
-  let height = canvas.height = window.innerHeight;
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
 
-  window.addEventListener("resize", () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-    initNodes();
-  });
+    window.addEventListener("resize", () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initNodes();
+    });
 
-  const nodes = [];
-  const nodeCount = 100;
+    const nodes = [];
+    const nodeCount = 100;
 
-  function initNodes() {
-    nodes.length = 0;
-    for (let i = 0; i < nodeCount; i++) {
-      nodes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 1,
-        vy: (Math.random() - 0.5) * 1,
-        r: Math.random() * 2 + 1
-        opacity: Math.random(),       // Start mit Zufalls-Opacity
-        opacityDir: Math.random() < 0.5 ? 1 : -1, // Richtung (ein-/ausblenden)
-        opacitySpeed: 0.005 + Math.random() * 0.01,
-         flash: false,
-        flashTimer: Math.random() * 300,
-      });
-    }
-  }
-
-  function drawNodes() {
-    ctx.clearRect(0, 0, width, height);
-    for (let i = 0; i < nodes.length; i++) {
-      const a = nodes[i];
-      ctx.beginPath();
-      ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
-      ctx.fillStyle = "#00fff2";
-      ctx.shadowBlur = 20;
-      ctx.shadowColor = "#00fff2";
-      ctx.fill();
-
-      for (let j = i + 1; j < nodes.length; j++) {
-        const b = nodes[j];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(0, 255, 242, ${1 - dist / 100})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
+    function initNodes() {
+      nodes.length = 0;
+      for (let i = 0; i < nodeCount; i++) {
+        nodes.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 1,
+          vy: (Math.random() - 0.5) * 1,
+          r: Math.random() * 2 + 1,
+          opacity: Math.random(),
+          opacityDir: Math.random() < 0.5 ? 1 : -1,
+          opacitySpeed: 0.005 + Math.random() * 0.01,
+          flash: false,
+          flashTimer: Math.random() * 300
+        });
       }
-
-      a.x += a.vx;
-      a.y += a.vy;
-
-      if (a.x < 0 || a.x > width) a.vx *= -1;
-      if (a.y < 0 || a.y > height) a.vy *= -1;
-    }
-  }
-
-  function animate() {
-    drawNodes();
-    ctx.globalAlpha = 0.5 + 0.3 * Math.sin(Date.now() / 1000);
-  nodes.forEach((node) => {
-    // Update Opacity
-    node.opacity += node.opacityDir * node.opacitySpeed;
-    if (node.opacity >= 1) {
-      node.opacity = 1;
-      node.opacityDir = -1;
-    }
-    if (node.opacity <= 0.2) {
-      node.opacity = 0.2;
-      node.opacityDir = 1;
     }
 
-    // Render mit individueller Opacity
-    ctx.beginPath();
-    ctx.arc(node.x, node.y, 2, 0, 2 * Math.PI);
-    ctx.fillStyle = `rgba(0, 255, 242, ${node.opacity})`;
-    ctx.shadowBlur = 20;
-    ctx.shadowColor = "#00fff2";
-    ctx.fill();
-  });
-}
-    requestAnimationFrame(animate);
-  }
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
 
-  initNodes();
-  animate();
-    node.flashTimer -= 1;
-if (node.flashTimer <= 0) {
-  node.flash = true;
-  node.flashTimer = 300 + Math.random() * 200; // nächster Trigger
-}
+      nodes.forEach((a, i) => {
+        // Bewegung
+        a.x += a.vx;
+        a.y += a.vy;
+        if (a.x < 0 || a.x > width) a.vx *= -1;
+        if (a.y < 0 || a.y > height) a.vy *= -1;
 
-if (node.flash) {
-  ctx.beginPath();
-  ctx.arc(node.x, node.y, 3.5, 0, 2 * Math.PI);
-  ctx.fillStyle = "rgba(0, 255, 255, 0.9)";
-  ctx.shadowBlur = 40;
-  ctx.shadowColor = "#00ffff";
-  ctx.fill();
-  node.flash = false; // einmaliges Flash
-}
-</script>
+        // Opacity
+        a.opacity += a.opacityDir * a.opacitySpeed;
+        if (a.opacity >= 1) { a.opacity = 1; a.opacityDir = -1; }
+        if (a.opacity <= 0.2) { a.opacity = 0.2; a.opacityDir = 1; }
+
+        // Flash-Effekt
+        a.flashTimer -= 1;
+        if (a.flashTimer <= 0) {
+          a.flash = true;
+          a.flashTimer = 300 + Math.random() * 200;
+        }
+
+        // Knoten zeichnen
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, 2, 0, 2 * Math.PI);
+        ctx.fillStyle = `rgba(0, 255, 242, ${a.opacity})`;
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = "#00fff2";
+        ctx.fill();
+
+        // Flash aufleuchten
+        if (a.flash) {
+          ctx.beginPath();
+          ctx.arc(a.x, a.y, 3.5, 0, 2 * Math.PI);
+          ctx.fillStyle = "rgba(0, 255, 255, 0.9)";
+          ctx.shadowBlur = 40;
+          ctx.shadowColor = "#00ffff";
+          ctx.fill();
+          a.flash = false;
+        }
+
+        // Linien zu anderen Knoten
+        for (let j = i + 1; j < nodes.length; j++) {
+          const b = nodes[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            const avgOpacity = (a.opacity + b.opacity) / 2;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(0, 255, 242, ${avgOpacity * (1 - dist / 120)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    initNodes();
+    animate();
+  </script>
 </body>
 </html>
