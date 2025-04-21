@@ -98,6 +98,10 @@
     const logo = document.querySelector(".preloader-logo");
     const navLogo = document.querySelector(".nav-logo");
 
+    if (!document.querySelector(".banner").classList.contains("fade-in")) {
+  document.querySelector(".banner").classList.add("fade-in");
+}
+
     setTimeout(() => {
   preloader.classList.add("fade-out");
 
