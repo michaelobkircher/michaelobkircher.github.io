@@ -25,8 +25,13 @@
   });
 </script>
 <body>
-<div id="preloader">
-  <canvas id="preloader-canvas"></canvas>
+  <div id="preloader">
+  <div class="boot-animation">
+    <p class="boot-line">BIOS Version 1.04</p>
+    <p class="boot-line">Initializing hardware...</p>
+    <p class="boot-line">Loading operating system</p>
+    <p class="boot-line">Welcome to WebOS 95</p>
+  </div>
 </div>
     <canvas id="neural-bg"></canvas>
   <div class="banner">
@@ -85,81 +90,13 @@
   </div>
 </div>
   </div>
-<script>
-const canvas = document.getElementById("preloader-canvas");
-const ctx = canvas.getContext("2d");
-
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
-
-window.addEventListener("resize", () => {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-});
-
-const nodes = [];
-const links = [];
-const nodeCount = 60;
-
-for (let i = 0; i < nodeCount; i++) {
-  nodes.push({
-    x: Math.random() * width,
-    y: Math.random() * height,
-    vx: (Math.random() - 0.5) * 0.5,
-    vy: (Math.random() - 0.5) * 0.5,
-    r: Math.random() * 2 + 1
+  <script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 5000); // Dauer der Animation (muss zur CSS passen)
   });
-}
-
-// Verbindungen erzeugen
-for (let i = 0; i < nodeCount; i++) {
-  for (let j = i + 1; j < nodeCount; j++) {
-    if (Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y) < 120) {
-      links.push([i, j]);
-    }
-  }
-}
-
-function animate() {
-  ctx.clearRect(0, 0, width, height);
-
-  // Linien
-  ctx.strokeStyle = 'rgba(0, 224, 182, 0.3)';
-  ctx.lineWidth = 1;
-  links.forEach(([i, j]) => {
-    const a = nodes[i];
-    const b = nodes[j];
-    ctx.beginPath();
-    ctx.moveTo(a.x, a.y);
-    ctx.lineTo(b.x, b.y);
-    ctx.stroke();
-  });
-
-  // Punkte
-  nodes.forEach(n => {
-    ctx.beginPath();
-    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-    ctx.fillStyle = '#00e0b6';
-    ctx.fill();
-
-    n.x += n.vx;
-    n.y += n.vy;
-
-    if (n.x < 0 || n.x > width) n.vx *= -1;
-    if (n.y < 0 || n.y > height) n.vy *= -1;
-  });
-
-  requestAnimationFrame(animate);
-}
-
-animate();
-
-window.addEventListener("load", () => {
-  const preloader = document.getElementById("preloader");
-  setTimeout(() => {
-    preloader.style.display = "none";
-  }, 3000);
-});
 </script>
   <footer class="site-footer">
   <img src="img/logo.png" alt="Logo" class="footer-logo">
