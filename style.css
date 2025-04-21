@@ -405,6 +405,11 @@ nav a:hover {
   line-height: 1.5em;
   text-align: left;
 }
+.flip-front ul, .flip-back ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 .flip-back p {
   font-size: 0.9em;
