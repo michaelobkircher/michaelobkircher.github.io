@@ -26,11 +26,13 @@
 </script>
 <body>
   <div id="preloader">
-  <div class="boot-animation">
-    <p class="boot-line">BIOS Version 1.04</p>
-    <p class="boot-line">Initializing hardware...</p>
-    <p class="boot-line">Loading operating system</p>
-    <p class="boot-line">Welcome to WebOS 95</p>
+  <div class="preloader-content">
+    <div class="logo-ring-wrapper">
+      <img src="img/logo.png" alt="Logo" class="preloader-logo">
+      <svg class="preloader-ring" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" />
+      </svg>
+    </div>
   </div>
 </div>
     <canvas id="neural-bg"></canvas>
@@ -90,12 +92,36 @@
   </div>
 </div>
   </div>
-  <script>
+<script>
   window.addEventListener("load", () => {
     const preloader = document.getElementById("preloader");
+    const logo = document.querySelector(".preloader-logo");
+    const navLogo = document.querySelector(".nav-logo");
+
     setTimeout(() => {
-      preloader.style.display = "none";
-    }, 5000); // Dauer der Animation (muss zur CSS passen)
+      preloader.classList.add("fade-out");
+
+      const preloaderClone = logo.cloneNode(true);
+      document.body.appendChild(preloaderClone);
+      preloaderClone.classList.add("logo-transition");
+
+      // Zielposition des Nav-Logos berechnen
+      const targetRect = navLogo.getBoundingClientRect();
+
+      preloaderClone.style.setProperty("--target-top", `${targetRect.top}px`);
+      preloaderClone.style.setProperty("--target-left", `${targetRect.left}px`);
+      preloaderClone.style.setProperty("--target-scale", `${60 / preloaderClone.width}`);
+
+      setTimeout(() => {
+        preloaderClone.classList.add("move-logo");
+      }, 100);
+
+      setTimeout(() => {
+        preloader.remove();
+        preloaderClone.remove();
+        document.querySelector(".banner").classList.add("fade-in");
+      }, 2000);
+    }, 2000);
   });
 </script>
   <footer class="site-footer">
