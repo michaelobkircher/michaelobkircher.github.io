@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+  <canvas id="neural-bg"></canvas>
   <div class="page-wrapper">
   <nav>
     <ul>
@@ -22,7 +23,6 @@
   </nav>
 <main>
   <section class="contact-section fade-item" style="--delay: 1">
-    <div class="neural-network-bg"></div>
     <div class="contact-container">
       <h2>Kontakt</h2>
 
@@ -65,5 +65,74 @@
   <p class="footer-text">Michael Obkircher</p>
 </footer>
       </div>
+  <script>
+  const canvas = document.getElementById("neural-bg");
+  const ctx = canvas.getContext("2d");
+
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  window.addEventListener("resize", () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    initNodes();
+  });
+
+  const nodes = [];
+  const nodeCount = 60;
+
+  function initNodes() {
+    nodes.length = 0;
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        r: Math.random() * 2 + 1
+      });
+    }
+  }
+
+  function drawNodes() {
+    ctx.clearRect(0, 0, width, height);
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      ctx.beginPath();
+      ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+      ctx.fillStyle = "#00e0b6";
+      ctx.fill();
+
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(0, 224, 182, ${1 - dist / 120})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+
+      a.x += a.vx;
+      a.y += a.vy;
+
+      if (a.x < 0 || a.x > width) a.vx *= -1;
+      if (a.y < 0 || a.y > height) a.vy *= -1;
+    }
+  }
+
+  function animate() {
+    drawNodes();
+    requestAnimationFrame(animate);
+  }
+
+  initNodes();
+  animate();
+</script>
 </body>
 </html>
