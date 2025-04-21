@@ -33,6 +33,7 @@
     <p class="boot-line">Welcome to WebOS 95</p>
   </div>
 </div>
+    <canvas id="neural-bg"></canvas>
   <div class="banner">
     <nav>
       <ul>
@@ -101,5 +102,102 @@
   <img src="img/logo.png" alt="Logo" class="footer-logo">
   <p class="footer-text">Michael Obkircher</p>
 </footer>
+  <script>
+    const canvas = document.getElementById("neural-bg");
+    const ctx = canvas.getContext("2d");
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initNodes();
+    });
+
+    const nodes = [];
+    const nodeCount = 100;
+
+    function initNodes() {
+      nodes.length = 0;
+      for (let i = 0; i < nodeCount; i++) {
+        nodes.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5),
+          vy: (Math.random() - 0.5),
+          r: Math.random() * 2 + 1,
+          opacity: Math.random(),
+          opacityDir: Math.random() < 0.5 ? 1 : -1,
+          opacitySpeed: 0.005 + Math.random() * 0.01,
+          flash: false,
+          flashTimer: Math.random() * 300
+        });
+      }
+    }
+
+    function drawNodes() {
+      ctx.clearRect(0, 0, width, height);
+      nodes.forEach((a, i) => {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const b = nodes[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(0, 255, 242, ${1 - dist / 100})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+
+        a.x += a.vx;
+        a.y += a.vy;
+        if (a.x < 0 || a.x > width) a.vx *= -1;
+        if (a.y < 0 || a.y > height) a.vy *= -1;
+      });
+    }
+
+    function animate() {
+      drawNodes();
+      nodes.forEach((node) => {
+        node.opacity += node.opacityDir * node.opacitySpeed;
+        if (node.opacity >= 1) {
+          node.opacity = 1;
+          node.opacityDir = -1;
+        }
+        if (node.opacity <= 0.2) {
+          node.opacity = 0.2;
+          node.opacityDir = 1;
+        }
+
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, 2, 0, 2 * Math.PI);
+        ctx.fillStyle = `rgba(0, 255, 242, ${node.opacity})`;
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = "#00fff2";
+        ctx.fill();
+
+        node.flashTimer -= 1;
+        if (node.flashTimer <= 0) {
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, 3.5, 0, 2 * Math.PI);
+          ctx.fillStyle = "rgba(0, 255, 255, 0.9)";
+          ctx.shadowBlur = 40;
+          ctx.shadowColor = "#00ffff";
+          ctx.fill();
+          node.flashTimer = 300 + Math.random() * 200;
+        }
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    initNodes();
+    animate();
+  </script>
 </body>
 </html>
