@@ -391,6 +391,7 @@ nav a:hover {
 
 .flip-front {
   font-weight: bold;
+  position: relative;
 }
 
 .flip-back {
@@ -421,6 +422,23 @@ nav a:hover {
 .flip-back p {
   font-size: 0.9em;
   color: #aaa;
+}
+.switch-icon {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 14px;
+  background: white;
+  color: #555;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.switch-icon:hover {
+  transform: rotate(180deg);
+  color: #000;
 }
 
 .soft-skill {
