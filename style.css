@@ -17,7 +17,6 @@ body, html {
   color: #ffffff;
 }
 
-/* Startseiten-Bereich */
 .banner {
   min-height: 100vh;
   display: flex;
@@ -72,7 +71,6 @@ nav a:hover {
   width: auto;
 }
 
-/* Intro-Text */
 .intro {
   margin: 50px auto;
   max-width: 900px;
@@ -88,7 +86,6 @@ nav a:hover {
   line-height: 1.6;
 }
 
-/* Video-Sektion */
 .video-section {
   margin: 50px auto;
   max-width: 900px;
@@ -105,7 +102,6 @@ nav a:hover {
   gap: 30px;
 }
 
-/* Flip-Karte Startseite */
 .flip-wrapper {
   display: flex;
   justify-content: center;
@@ -169,7 +165,6 @@ nav a:hover {
   text-decoration: none;
 }
 
-/* Titel und Untertitel */
 .name-heading {
   font-size: 2.5em;
   margin: 0;
@@ -185,7 +180,6 @@ nav a:hover {
   letter-spacing: 1px;
 }
 
-/* Fade-Effekte */
 .fade-item {
   opacity: 0;
   transform: translateY(20px);
@@ -198,7 +192,6 @@ nav a:hover {
   transition-delay: calc(var(--delay) * 0.5s);
 }
 
-/* Kontakt-Button */
 .contact-button {
   display: inline-block;
   margin-top: 30px;
@@ -216,7 +209,6 @@ nav a:hover {
   background-color: #00c2a1;
 }
 
-/* About-Seite */
 .about-section {
   max-width: 1000px;
   margin: 100px auto;
@@ -260,7 +252,6 @@ nav a:hover {
   margin-bottom: 16px;
 }
 
-/* Button unter dem Text */
 .button-wrapper {
   margin-top: 30px;
 }
@@ -285,7 +276,6 @@ nav a:hover {
   }
 }
 
-/* Kontakt-Seite */
 .contact-section {
   max-width: 800px;
   margin: 80px auto 40px auto;
@@ -335,7 +325,6 @@ nav a:hover {
   padding: 60px 20px;
 }
 
-/* Skills */
 .skills-section {
   max-width: 1000px;
   margin: 100px auto;
@@ -415,7 +404,6 @@ nav a:hover {
   color: #aaa;
 }
 
-/* Soft Skills */
 .soft-skill {
   width: 200px;
   height: 120px;
@@ -430,7 +418,6 @@ nav a:hover {
   font-size: 1em;
 }
 
-/* Flaggen */
 .flag-icon {
   width: 50px;
   height: auto;
@@ -528,14 +515,14 @@ nav a:hover {
   }
 }
 .site-footer {
-  margin-top: 40px; /* vorher 100px */
-  padding: 15px 10px; /* vorher 40px 20px */
+  margin-top: 40px;
+  padding: 15px 10px; 
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; /* auch ein bisschen reduziert */
+  gap: 10px;
 }
 
 .footer-logo {
@@ -575,5 +562,5 @@ main {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  will-change: transform, opacity; /* Für Performance */
+  will-change: transform, opacity; 
 }
