@@ -496,23 +496,6 @@ nav a:hover {
   }
 }
 
-.logo-transition {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 150px;
-  height: auto;
-  transform: translate(-50%, -50%);
-  transition: all 1s ease-in-out;
-  z-index: 9999;
-}
-
-.logo-transition.move-logo {
-  top: var(--target-top);
-  left: var(--target-left);
-  transform: translate(0, 0) scale(var(--target-scale));
-}
-
 .banner.fade-in {
   animation: fadeInBanner 1s ease-in-out forwards;
 }
