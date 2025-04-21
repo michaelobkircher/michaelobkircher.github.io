@@ -99,29 +99,13 @@
     const navLogo = document.querySelector(".nav-logo");
 
     setTimeout(() => {
-      preloader.classList.add("fade-out");
+  preloader.classList.add("fade-out");
 
-      const preloaderClone = logo.cloneNode(true);
-      document.body.appendChild(preloaderClone);
-      preloaderClone.classList.add("logo-transition");
-
-      // Zielposition des Nav-Logos berechnen
-      const targetRect = navLogo.getBoundingClientRect();
-
-      preloaderClone.style.setProperty("--target-top", `${targetRect.top}px`);
-      preloaderClone.style.setProperty("--target-left", `${targetRect.left}px`);
-      preloaderClone.style.setProperty("--target-scale", `${60 / preloaderClone.width}`);
-
-      setTimeout(() => {
-        preloaderClone.classList.add("move-logo");
-      }, 100);
-
-      setTimeout(() => {
-        preloader.remove();
-        preloaderClone.remove();
-        document.querySelector(".banner").classList.add("fade-in");
-      }, 2000);
-    }, 2000);
+  setTimeout(() => {
+    preloader.remove();
+    document.querySelector(".banner").classList.add("fade-in");
+  }, 1000);
+}, 2000);
   });
 </script>
   <footer class="site-footer">
