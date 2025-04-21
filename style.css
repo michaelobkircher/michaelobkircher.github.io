@@ -429,6 +429,26 @@ nav a:hover {
   font-weight: bold;
   font-size: 1em;
 }
+.softcard {
+  width: 200px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  font-size: 1.1em;
+  text-align: center;
+  color: #ffffff;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.softcard:hover {
+  background-color: rgba(0, 224, 182, 0.1);
+  transform: scale(1.05);
+}
 
 .flag-icon {
   width: 50px;
