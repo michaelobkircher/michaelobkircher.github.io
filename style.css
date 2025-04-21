@@ -482,9 +482,10 @@ nav a:hover {
   stroke: #00e0b6;
   stroke-width: 5;
   fill: none;
-  animation: spin-ring 2s linear forwards;
+  animation: spin-ring 1.5s ease-out forwards;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
+  will-change: stroke-dasharray, transform;
 }
 
 @keyframes spin-ring {
