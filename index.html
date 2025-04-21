@@ -102,14 +102,11 @@
   document.querySelector(".banner").classList.add("fade-in");
 }
 
-    setTimeout(() => {
-  preloader.classList.add("fade-out");
+preloader.classList.add("fade-out");
 
-  setTimeout(() => {
-    preloader.remove();
-    document.querySelector(".banner").classList.add("fade-in");
-  }, 1000);
-}, 2000);
+preloader.addEventListener("transitionend", () => {
+  preloader.remove();
+  document.querySelector(".banner").classList.add("fade-in");
   });
 </script>
   <footer class="site-footer">
