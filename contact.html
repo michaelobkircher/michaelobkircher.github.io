@@ -90,6 +90,11 @@
         vx: (Math.random() - 0.5) * 1,
         vy: (Math.random() - 0.5) * 1,
         r: Math.random() * 2 + 1
+        opacity: Math.random(),       // Start mit Zufalls-Opacity
+        opacityDir: Math.random() < 0.5 ? 1 : -1, // Richtung (ein-/ausblenden)
+        opacitySpeed: 0.005 + Math.random() * 0.01,
+         flash: false,
+        flashTimer: Math.random() * 300,
       });
     }
   }
@@ -131,11 +136,47 @@
   function animate() {
     drawNodes();
     ctx.globalAlpha = 0.5 + 0.3 * Math.sin(Date.now() / 1000);
+  nodes.forEach((node) => {
+    // Update Opacity
+    node.opacity += node.opacityDir * node.opacitySpeed;
+    if (node.opacity >= 1) {
+      node.opacity = 1;
+      node.opacityDir = -1;
+    }
+    if (node.opacity <= 0.2) {
+      node.opacity = 0.2;
+      node.opacityDir = 1;
+    }
+
+    // Render mit individueller Opacity
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, 2, 0, 2 * Math.PI);
+    ctx.fillStyle = `rgba(0, 255, 242, ${node.opacity})`;
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "#00fff2";
+    ctx.fill();
+  });
+}
     requestAnimationFrame(animate);
   }
 
   initNodes();
   animate();
+    node.flashTimer -= 1;
+if (node.flashTimer <= 0) {
+  node.flash = true;
+  node.flashTimer = 300 + Math.random() * 200; // nächster Trigger
+}
+
+if (node.flash) {
+  ctx.beginPath();
+  ctx.arc(node.x, node.y, 3.5, 0, 2 * Math.PI);
+  ctx.fillStyle = "rgba(0, 255, 255, 0.9)";
+  ctx.shadowBlur = 40;
+  ctx.shadowColor = "#00ffff";
+  ctx.fill();
+  node.flash = false; // einmaliges Flash
+}
 </script>
 </body>
 </html>
