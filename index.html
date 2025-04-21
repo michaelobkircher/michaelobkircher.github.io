@@ -96,19 +96,21 @@
   window.addEventListener("load", () => {
     const preloader = document.getElementById("preloader");
     const logo = document.querySelector(".preloader-logo");
-    const navLogo = document.querySelector(".nav-logo");
 
     if (!document.querySelector(".banner").classList.contains("fade-in")) {
   document.querySelector(".banner").classList.add("fade-in");
 }
 
-preloader.classList.add("fade-out");
+    setTimeout(() => {
+      preloader.classList.add("fade-out");
 
-preloader.addEventListener("transitionend", () => {
-  preloader.remove();
-  document.querySelector(".banner").classList.add("fade-in");
+      banner.classList.add("fade-in");
+
+      preloader.addEventListener('transitionend', () => {
+        preloader.remove();
+      });
+    }, 2000);
   });
-    });
 </script>
   <footer class="site-footer">
   <img src="img/logo.png" alt="Logo" class="footer-logo">
