@@ -496,9 +496,13 @@ nav a:hover {
     stroke-dasharray: 283 0;
   }
 }
-
+.banner {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
 .banner.fade-in {
   animation: fadeInBanner 1s ease-in-out forwards;
+  opacity: 1;
 }
 
 @keyframes fadeInBanner {
