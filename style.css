@@ -650,3 +650,17 @@ main {
     display: none !important;
   }
 }
+@media (max-width: 767px) {
+  .fade-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .fade-item.visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition-delay: 0s !important;
+  }
+}
