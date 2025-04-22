@@ -318,18 +318,5 @@
     });
   }
 </script>
-      <script>
-  function isTouchDevice() {
-    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  }
-
-  if (isTouchDevice()) {
-    document.querySelectorAll('.flipcard').forEach(card => {
-      card.addEventListener('click', function () {
-        this.classList.toggle('flipped');
-      });
-    });
-  }
-</script>
 </body>
 </html> 
