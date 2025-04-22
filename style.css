@@ -631,8 +631,3 @@ main {
     display: none !important;
   }
 }
-@media (max-width: 768px) {
-  #neural-bg {
-    display: none !important;
-  }
-}
