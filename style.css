@@ -678,11 +678,3 @@ main {
 .flip-inner.flipped {
   transform: rotateY(180deg);
 }
-.flipcard .flip-inner {
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flipcard.flipped .flip-inner {
-  transform: rotateY(180deg);
-}
