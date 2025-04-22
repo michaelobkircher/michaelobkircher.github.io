@@ -664,3 +664,17 @@ main {
     transition-delay: 0s !important;
   }
 }
+@media (min-width: 768px) {
+  .flipcard:hover .flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+.flip-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flip-inner.flipped {
+  transform: rotateY(180deg);
+}
