@@ -300,5 +300,23 @@
     initNodes();
     animate();
   </script>
+      <script>
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  if (isMobile) {
+    document.querySelectorAll('.flipcard').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.flipcard .flip-inner').forEach(inner => {
+          if (inner !== card.querySelector('.flip-inner')) {
+            inner.classList.remove('flipped');
+          }
+        });
+
+        const inner = card.querySelector('.flip-inner');
+        inner.classList.toggle('flipped');
+      });
+    });
+  }
+</script>
 </body>
 </html> 
