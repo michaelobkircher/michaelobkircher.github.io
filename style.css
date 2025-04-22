@@ -635,7 +635,9 @@ main {
 }
 @media (max-width: 767px) {
   #neural-bg {
-    display: none !important;
+    animation: none !important;
+    opacity: 0 !important;
+    pointer-events: none;
   }
 }
 .fade-item {
