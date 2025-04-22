@@ -220,6 +220,16 @@ nav a:hover {
 .contact-button:hover {
   background-color: #00c2a1;
 }
+@media (max-width: 767px) {
+  .contact-button {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    max-width: 300px;
+  }
+}
 
 .about-section {
   max-width: 1000px;
