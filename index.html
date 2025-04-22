@@ -99,6 +99,11 @@
     const logo = document.querySelector(".preloader-logo");
     const banner = document.querySelector(".banner");
 
+    if (window.innerWidth <= 768) {
+    preloader.remove();
+    banner.classList.add("fade-in");
+    return;
+  }
     if (!document.querySelector(".banner").classList.contains("fade-in")) {
   document.querySelector(".banner").classList.add("fade-in");
 }
