@@ -633,6 +633,11 @@ main {
   opacity: 0.6;
   mix-blend-mode: lighten;
 }
+@media (max-width: 767px) {
+  #neural-bg {
+    display: none !important;
+  }
+}
 .fade-item {
   opacity: 0;
   transform: translateY(20px);
