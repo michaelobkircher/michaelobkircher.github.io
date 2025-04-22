@@ -621,3 +621,8 @@ main {
   transition: opacity 0.8s ease, transform 0.8s ease;
   will-change: transform, opacity; 
 }
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
